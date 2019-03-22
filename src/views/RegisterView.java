@@ -124,6 +124,8 @@ public class RegisterView extends JFrame
         this.contentSexo = new JPanel();
         this.setContentSexo(contentSexo);
         
+        //Agregar elementos al panel
+        
         contentPrincipal.add(this.getTagNombre());
         contentPrincipal.add(this.getTagApellido());
         contentPrincipal.add(this.getTagCedula());
