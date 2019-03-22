@@ -137,11 +137,14 @@ public class RegisterView extends JFrame
     }
 
     public void setContentSexo(JPanel contentSexo) {
-        contentSexo.setBounds(100,150,260,100);
+        contentSexo.setBounds(95,180,270,50);
         contentSexo.setLayout(null);
         contentSexo.setBackground(Color.WHITE);
-        contentSexo.setBorder(BorderFactory.createTitledBorder("Sexo"));
-        
+        TitledBorder tb = BorderFactory.createTitledBorder("Sexo");
+        tb.setTitleJustification(TitledBorder.CENTER);
+        tb.setTitleFont(new Font("Arial", Font.BOLD, 14));
+        contentSexo.setBorder(tb);
+             
         
         this.contentSexo = contentSexo;
     }
