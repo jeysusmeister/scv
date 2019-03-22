@@ -6,9 +6,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,7 +20,7 @@ import java.util.regex.Matcher;
 import javax.swing.JOptionPane;
 
 
-public class LoginViews extends JFrame implements MouseListener, MouseMotionListener 
+public class LoginView extends JFrame 
 {
     //Atributos
     private JPanel contentImg, contentTag, contenedores[];
@@ -39,12 +36,12 @@ public class LoginViews extends JFrame implements MouseListener, MouseMotionList
 
         
     //Constructores
-    public LoginViews() 
+    public LoginView() 
     {       
         this.initComponent();
     }
 
-    public LoginViews(JPanel contentImg, JPanel contentTag, JPanel[] contenedores, JLabel tagImg, JLabel tagUsuario, JLabel tagClave, JTextField campoUsuario, JPasswordField campoClave, ImageIcon iconoLogin, ImageIcon iconoPaisaje, JButton btnIngresar, JButton btnRegistrar) 
+    public LoginView(JPanel contentImg, JPanel contentTag, JPanel[] contenedores, JLabel tagImg, JLabel tagUsuario, JLabel tagClave, JTextField campoUsuario, JPasswordField campoClave, ImageIcon iconoLogin, ImageIcon iconoPaisaje, JButton btnIngresar, JButton btnRegistrar) 
     {
         this.contentImg = contentImg;
         this.contentTag = contentTag;
@@ -101,10 +98,6 @@ public class LoginViews extends JFrame implements MouseListener, MouseMotionList
         contentImg.setLayout(null);
         contentImg.setBorder(BorderFactory.createLineBorder(Color.orange));
         this.tagImg = new JLabel();
-        //ojo
-        this.tagImg.addMouseListener(this);
-        this.tagImg.addMouseMotionListener(this);
-        //
         this.setTagImg(tagImg);
         contentImg.add(this.getTagImg());
         this.contentImg = contentImg;
@@ -346,6 +339,8 @@ public class LoginViews extends JFrame implements MouseListener, MouseMotionList
             {
                 this.setVisible(false);
                 this.dispose();
+                this.repaint();
+                RegisterView rv = RegisterView.getInstance();                
             }
         
         });
@@ -384,46 +379,5 @@ public class LoginViews extends JFrame implements MouseListener, MouseMotionList
     public void setYy(int yy) {
         this.yy = yy;
     }
-        
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) 
-    {
-        this.setX(e.getXOnScreen());
-        this.setY(e.getYOnScreen());        
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        this.setXx(e.getXOnScreen());
-        this.setYy(e.getYOnScreen());
-        this.setLocation((this.getXx()-getX()), (this.getYy()-getY()));
-        System.out.println("x: "+(this.getXx()-getX()));
-        System.out.println("y: "+(this.getYy()-getY()));
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
+           
 }

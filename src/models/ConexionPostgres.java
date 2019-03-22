@@ -12,8 +12,20 @@ public class ConexionPostgres
     private final static String USER;
     private final static String PASS;
     private static Connection link;
+    private static ConexionPostgres _instance;
     
-    public ConexionPostgres(){}
+    private ConexionPostgres(){}
+    
+    public static ConexionPostgres getInstance(){
+        
+        if(_instance==null)
+        {
+            _instance = new ConexionPostgres();
+                   
+        }
+        return _instance;
+    }
+
     
     public static Connection conectar()
     {        
@@ -27,10 +39,11 @@ public class ConexionPostgres
         return link;
     
     }
-    
+       
     static
     {
-        DB = "login";
+        _instance=null;
+        DB = "scv";
         URL = "jdbc:postgresql://127.0.0.1:5432/";
         USER = "postgres";
         PASS = "503503";

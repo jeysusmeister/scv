@@ -26,6 +26,7 @@ public class LoginModel
     {
         PreparedStatement ps = null;
         boolean data = false;
+                
         try{
             ps = ConexionPostgres.conectar().prepareStatement("SELECT * FROM usuario WHERE nombre=? AND clave=?;");
             ps.setString(1, usuario);
@@ -37,6 +38,7 @@ public class LoginModel
                 String user_nombre = rs.getString("nombre");
 				String user_apellido = rs.getString("apellido");
                 data = (this.rs.getRow()!=0) ? true : false;
+                //falta actualizar la fecha del ultimo ingreso
             }
                        
         } catch (SQLException e){

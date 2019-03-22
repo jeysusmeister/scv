@@ -1,13 +1,13 @@
 package main;
 
-import views.LoginViews;
+import views.LoginView;
 
 
 public class Main {
     
     public static void main(String[] args)
     {
-        LoginViews lv = new LoginViews();
+        LoginView lv = new LoginView();
     }
 
     
